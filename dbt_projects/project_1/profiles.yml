@@ -1,0 +1,13 @@
+project_1:
+  target: dev
+  outputs:
+    dev:
+      type: snowflake
+      account: nmbqhvk-ns46391
+      user: TUAN_123
+      password: OKOK123456
+      role: MY_ROLE
+      database: DBT_TEST
+      warehouse: MY_WAREHOUSE
+      schema: MAIN
+      threads: 4

@@ -1,0 +1,4 @@
+-- SELECT 
+--     CUSTOMER_ZIPCODE,
+--     {{ dbt_utils.safe_add(['total_orders', 'total_returns']) }} AS net_orders
+-- FROM {{ ref('customer_orders') }}
