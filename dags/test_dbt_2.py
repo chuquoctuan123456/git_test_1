@@ -15,26 +15,27 @@ with DAG(
     # Chạy `dbt debug` để kiểm tra kết nối
     dbt_debug = BashOperator(
         task_id="dbt_debug",
-        bash_command=f"dbt debug --profiles-dir {DBT_PROFILES_DIR}"
+        bash_command=f"cd {DBT_PROJECT_DIR} && dbt debug --profiles-dir {DBT_PROFILES_DIR}"
     )
 
-    # Chạy `dbt deps` để tải dependencies
-    dbt_deps = BashOperator(
-        task_id="dbt_deps",
-        bash_command=f"dbt deps --project-dir {DBT_PROJECT_DIR}"
-    )
+    # # Chạy `dbt deps` để tải dependencies
+    # dbt_deps = BashOperator(
+    #     task_id="dbt_deps",
+    #     bash_command=f"cd {DBT_PROJECT_DIR} && dbt deps"
+    # )
 
-    # Chạy `dbt run` để thực thi model
-    dbt_run = BashOperator(
-        task_id="dbt_run",
-        bash_command=f"dbt run --project-dir {DBT_PROJECT_DIR} --profiles-dir {DBT_PROFILES_DIR}"
-    )
+    # # Chạy `dbt run` để thực thi model
+    # dbt_run = BashOperator(
+    #     task_id="dbt_run",
+    #     bash_command=f"cd {DBT_PROJECT_DIR} && dbt run --profiles-dir {DBT_PROFILES_DIR}"
+    # )
 
-    # Chạy `dbt test` để kiểm tra dữ liệu
-    dbt_test = BashOperator(
-        task_id="dbt_test",
-        bash_command=f"dbt test --project-dir {DBT_PROJECT_DIR} --profiles-dir {DBT_PROFILES_DIR}"
-    )
+    # # Chạy `dbt test` để kiểm tra dữ liệu
+    # dbt_test = BashOperator(
+    #     task_id="dbt_test",
+    #     bash_command=f"cd {DBT_PROJECT_DIR} && dbt test --profiles-dir {DBT_PROFILES_DIR}"
+    # )
 
-    # Sắp xếp thứ tự chạy
-    dbt_debug >> dbt_deps >> dbt_run >> dbt_test
+    # # Sắp xếp thứ tự chạy
+    dbt_debug 
+    #>> dbt_deps >> dbt_run >> dbt_test
